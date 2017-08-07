@@ -1,4 +1,4 @@
-Collaborative filtering using matrix factorization
+Movie recommendation filter--collaborative, item-based, and hybrid
 
 This project uses the MovieLens Small dataset (https://grouplens.org/datasets/movielens/)
 
@@ -18,3 +18,12 @@ As-is, this analysis evaluates whether the difference in the models' ability to 
 (In other words, adding features might allow the model to consistently predict my ratings within 0.1 stars, which would be statistically significant, but might not affect which movies were actually recommended to me.)
  Given the context, it might make sense to change the cost function to reflect the model's actual use--e.g., instead of measuring the error in predicting users' exact ratings, just predict whether users will "like" each film (based on a reasonable definition of "like," e.g., one or two stars above the user's mean rating). 
  Optimizing over this cost function would prioritize the real goal of classifying each film as liked or not liked by each user.
+
+content_filter uses a Bayesian analysis to predict users' movie ratings based on the genres of movies they've already rated. (A lot more information could be added based on other datasets, but I just used genre for the first pass.)
+
+hybridSystem:
+(1) uses the Bayesian analysis to predict all users' ratings for all unrated movies. 
+(2) Then the dense matrix containing these predictions and the explicit ratings is used in the matrix factorization (SVD).
+
+The next iteration might include some way of optimizing the second step to account for the level of confidence in the predicted ratings (e.g., implement a cost function that down-weights the model's error for some cases).
+
