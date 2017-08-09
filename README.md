@@ -25,5 +25,8 @@ hybridSystem:
 (1) uses the Bayesian analysis to predict all users' ratings for all unrated movies. 
 (2) Then the dense matrix containing these predictions and the explicit ratings is used in the matrix factorization (SVD).
 
-The next iteration might include some way of optimizing the second step to account for the level of confidence in the predicted ratings (e.g., implement a cost function that down-weights the model's error for some cases).
+NEXT STEPS:
+(1) Evaluate the hybrid system--does it actually do better than the others? (cross-validation to compare models)
+(2) Clean up--scoop up all the code that's used repeatedly and define some methods that can be used on other datasets or different splits of the data...
+(3) some way of optimizing the second step to account for the level of confidence in the predicted ratings? (e.g., implement a cost function that down-weights the model's error for some cases) (that means using something other than SVD to factor the matrix)
 
