@@ -29,4 +29,4 @@ NEXT STEPS:
 (1) Evaluate the hybrid system--does it actually do better than the others? (cross-validation to compare models)
 (2) Clean up--scoop up all the code that's used repeatedly and define some methods that can be used on other datasets or different splits of the data...
 (3) some way of optimizing the second step to account for the level of confidence in the predicted ratings? (e.g., implement a cost function that down-weights the model's error for some cases) (that means using something other than SVD to factor the matrix)
-
+(4) How does Netflix create and name all of its suggested sub-genres? (e.g., "foreign-language space-opera with strong female lead"?) Some clustering analysis could sort the films, and maybe tag data to suggest some names for them, if there are enough tags provided...?
